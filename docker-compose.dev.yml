@@ -1,0 +1,92 @@
+# ============================================
+# BraidedByMae — Docker Compose (Development)
+# ============================================
+# Usage: docker compose -f docker-compose.dev.yml up --build 
+
+services:
+  # --- Next.js App (Dev with hot reload) ---
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: braidedbymae-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules        # Prevent host node_modules from overriding
+      - /app/.next               # Prevent .next from being overwritten
+    env_file:
+      - .env.local
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://braidedbymae:braidedbymae_dev@db:5432/braidedbymae
+      - SMTP_HOST=mailpit
+      - SMTP_PORT=1025
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - braidedbymae
+
+  # --- PostgreSQL ---
+  db:
+    image: postgres:16-alpine
+    container_name: braidedbymae-db
+    restart: unless-stopped
+    ports:
+      - "5433:5432"              # 5433 on host to avoid conflicts
+    environment:
+      POSTGRES_USER: braidedbymae
+      POSTGRES_PASSWORD: braidedbymae_dev
+      POSTGRES_DB: braidedbymae
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U braidedbymae"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - braidedbymae
+
+  # --- Mailpit (Local email testing UI) ---
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: braidedbymae-mail
+    restart: unless-stopped
+    ports:
+      - "8025:8025"              # Web UI
+      - "1025:1025"              # SMTP
+    networks:
+      - braidedbymae
+
+  # --- Prisma Studio (DB GUI) ---
+  prisma-studio:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: braidedbymae-studio
+    restart: unless-stopped
+    ports:
+      - "5555:5555"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - DATABASE_URL=postgresql://braidedbymae:braidedbymae_dev@db:5432/braidedbymae
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["npx", "prisma", "studio"]
+    networks:
+      - braidedbymae
+
+volumes:
+  pgdata:
+    driver: local
+
+networks:
+  braidedbymae:
+    driver: bridge

@@ -63,15 +63,16 @@
     }
   },
   "portfolio": {
-    "title": "Portfolio",
-    "subtitle": "Discover our work",
+    "title": "Our Work",
+    "subtitle": "Discover our creations",
     "all": "All",
-    "boxBraids": "Box Braids",
+    "box-braids": "Box Braids",
     "cornrows": "Cornrows",
     "twists": "Twists",
     "locs": "Locs",
     "crochet": "Crochet",
-    "men": "Men"
+    "men": "Men",
+    "close": "Close"
   },
   "booking": {
     "title": "Book an Appointment",
@@ -108,6 +109,21 @@
     "title": "Client Reviews",
     "subtitle": "What our clients say",
     "leaveReview": "Leave a review",
+    "review1": {
+      "name": "Aminata D.",
+      "service": "Box Braids",
+      "comment": "Mae is a true artist! My box braids are perfect, exactly what I wanted. She takes the time to listen and the result is always stunning."
+    },
+    "review2": {
+      "name": "Fatou S.",
+      "service": "Cornrows",
+      "comment": "Great experience from start to finish. Mae is punctual, professional and so talented. I recommend her 100%!"
+    },
+    "review3": {
+      "name": "Chloé M.",
+      "service": "Crochet Braids",
+      "comment": "First time getting African braids and Mae made me feel so comfortable. The result is incredible, I've received so many compliments!"
+    },
     "form": {
       "name": "Your name",
       "rating": "Rating",
@@ -118,12 +134,17 @@
   },
   "about": {
     "title": "About Mae",
-    "coverage": "Coverage area",
+    "story": "Passionate about the art of African braiding since childhood, I turned this passion into my profession. Each hairstyle is a unique creation, crafted with love and care. My goal: for you to leave not only with a gorgeous hairstyle, but also with the smile and confidence that comes with it.",
+    "coverageTitle": "Coverage Area",
     "cities": "Nuremberg, Fürth, Erlangen, Bamberg",
-    "travelSurcharge": "Travel surcharge: €10–20 depending on distance"
+    "homeService": "Home service available (surcharge of €10–20 depending on distance)",
+    "availability": "Available primarily on weekends, flexible on request"
   },
   "contact": {
     "title": "Contact",
+    "ctaHeadline": "Ready to elevate your hair?",
+    "ctaSubtext": "Book your session now and let Mae create your next look.",
+    "ctaButton": "Book now",
     "instagram": "Instagram",
     "tiktok": "TikTok",
     "email": "Email",

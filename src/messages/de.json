@@ -63,15 +63,16 @@
     }
   },
   "portfolio": {
-    "title": "Portfolio",
-    "subtitle": "Entdecken Sie unsere Arbeiten",
+    "title": "Unsere Arbeiten",
+    "subtitle": "Entdecken Sie unsere Kreationen",
     "all": "Alle",
-    "boxBraids": "Box Braids",
+    "box-braids": "Box Braids",
     "cornrows": "Cornrows",
     "twists": "Twists",
     "locs": "Locs",
     "crochet": "Crochet",
-    "men": "Männer"
+    "men": "Männer",
+    "close": "Schließen"
   },
   "booking": {
     "title": "Termin buchen",
@@ -108,6 +109,21 @@
     "title": "Kundenbewertungen",
     "subtitle": "Was unsere Kundinnen sagen",
     "leaveReview": "Bewertung hinterlassen",
+    "review1": {
+      "name": "Aminata D.",
+      "service": "Box Braids",
+      "comment": "Mae ist eine echte Künstlerin! Meine Box Braids sind perfekt, genau das, was ich wollte. Sie nimmt sich Zeit zuzuhören und das Ergebnis ist immer wunderschön."
+    },
+    "review2": {
+      "name": "Fatou S.",
+      "service": "Cornrows",
+      "comment": "Tolle Erfahrung von Anfang bis Ende. Mae ist pünktlich, professionell und so talentiert. Ich empfehle sie zu 100%!"
+    },
+    "review3": {
+      "name": "Chloé M.",
+      "service": "Crochet Braids",
+      "comment": "Zum ersten Mal afrikanische Zöpfe und Mae hat mir ein tolles Gefühl gegeben. Das Ergebnis ist unglaublich, ich habe so viele Komplimente bekommen!"
+    },
     "form": {
       "name": "Ihr Name",
       "rating": "Bewertung",
@@ -118,12 +134,17 @@
   },
   "about": {
     "title": "Über Mae",
-    "coverage": "Einzugsgebiet",
+    "story": "Seit meiner Kindheit begeistert von der Kunst des afrikanischen Flechtens, habe ich diese Leidenschaft zu meinem Beruf gemacht. Jede Frisur ist für mich ein einzigartiges Kunstwerk, geschaffen mit Liebe und Sorgfalt. Mein Ziel: dass Sie nicht nur mit einer wunderschönen Frisur gehen, sondern auch mit dem Lächeln und dem Selbstbewusstsein, das dazu gehört.",
+    "coverageTitle": "Einzugsgebiet",
     "cities": "Nürnberg, Fürth, Erlangen, Bamberg",
-    "travelSurcharge": "Anfahrtspauschale: 10–20€ je nach Entfernung"
+    "homeService": "Hausbesuch möglich (Aufpreis 10–20€ je nach Entfernung)",
+    "availability": "Hauptsächlich am Wochenende verfügbar, flexibel auf Anfrage"
   },
   "contact": {
     "title": "Kontakt",
+    "ctaHeadline": "Bereit für eine neue Frisur?",
+    "ctaSubtext": "Buchen Sie jetzt Ihren Termin und lassen Sie Mae Ihren nächsten Look kreieren.",
+    "ctaButton": "Jetzt buchen",
     "instagram": "Instagram",
     "tiktok": "TikTok",
     "email": "E-Mail",

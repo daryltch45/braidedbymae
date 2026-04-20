@@ -63,15 +63,16 @@
     }
   },
   "portfolio": {
-    "title": "Portfolio",
-    "subtitle": "Découvrez nos réalisations",
+    "title": "Nos Réalisations",
+    "subtitle": "Découvrez nos créations",
     "all": "Tous",
-    "boxBraids": "Box Braids",
+    "box-braids": "Box Braids",
     "cornrows": "Cornrows",
     "twists": "Twists",
     "locs": "Locs",
     "crochet": "Crochet",
-    "men": "Hommes"
+    "men": "Hommes",
+    "close": "Fermer"
   },
   "booking": {
     "title": "Réserver",
@@ -108,6 +109,21 @@
     "title": "Avis Clients",
     "subtitle": "Ce que disent nos clientes",
     "leaveReview": "Laisser un avis",
+    "review1": {
+      "name": "Aminata D.",
+      "service": "Box Braids",
+      "comment": "Mae est une vraie artiste ! Mes box braids sont parfaites, exactement ce que je voulais. Elle prend le temps d'écouter et le résultat est toujours magnifique."
+    },
+    "review2": {
+      "name": "Fatou S.",
+      "service": "Cornrows",
+      "comment": "Super expérience du début à la fin. Mae est ponctuelle, professionnelle et tellement talentueuse. Je recommande à 100% !"
+    },
+    "review3": {
+      "name": "Chloé M.",
+      "service": "Crochet Braids",
+      "comment": "Première fois que je fais des tresses africaines et Mae m'a mise tellement à l'aise. Le résultat est incroyable, j'ai reçu plein de compliments !"
+    },
     "form": {
       "name": "Votre nom",
       "rating": "Note",
@@ -118,12 +134,17 @@
   },
   "about": {
     "title": "À propos de Mae",
-    "coverage": "Zone de couverture",
+    "story": "Passionnée par l'art des tresses africaines depuis mon enfance, j'ai fait de cette passion mon métier. Chaque coiffure est pour moi une œuvre unique, créée avec amour et attention. Mon objectif : que vous repartiez non seulement avec une coiffure magnifique, mais aussi avec le sourire et la confiance qui va avec.",
+    "coverageTitle": "Zone de couverture",
     "cities": "Nuremberg, Fürth, Erlangen, Bamberg",
-    "travelSurcharge": "Supplément déplacement : 10–20€ selon la distance"
+    "homeService": "Service à domicile disponible (supplément de 10–20€ selon la distance)",
+    "availability": "Disponible principalement les week-ends, flexible sur demande"
   },
   "contact": {
     "title": "Contact",
+    "ctaHeadline": "Prête à sublimer vos cheveux ?",
+    "ctaSubtext": "Réservez votre séance dès maintenant et laissez Mae créer votre prochain look.",
+    "ctaButton": "Réserver maintenant",
     "instagram": "Instagram",
     "tiktok": "TikTok",
     "email": "Email",

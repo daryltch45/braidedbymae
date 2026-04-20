@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
 
           {/* Social links */}
-          <div className="space-y-3">
+          <div className="space-y-3 flex flex-col items-center text-center">
             <h4 className="text-sm font-semibold text-foreground">
               {tContact("title")}
             </h4>

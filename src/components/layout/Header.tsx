@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { usePathname, useRouter } from "next/navigation";
@@ -30,6 +30,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -37,6 +38,27 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close lang dropdown on outside click or Escape
+  useEffect(() => {
+    if (!langOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLangOpen(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [langOpen]);
 
   const currentLocale = pathname.split("/")[1] || "fr";
 
@@ -80,7 +102,7 @@ export default function Header() {
             {/* Right side controls */}
             <div className="flex items-center gap-2">
               {/* Language switcher */}
-              <div className="relative">
+              <div className="relative" ref={langRef}>
                 <button
                   onClick={() => setLangOpen(!langOpen)}
                   className="flex items-center gap-1 rounded-full px-3 py-2 text-sm text-muted hover:text-foreground transition-colors"

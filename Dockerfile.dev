@@ -1,0 +1,26 @@
+# ============================================
+# BraidedByMae — Development Dockerfile
+# ============================================
+FROM node:20-alpine
+
+RUN apk add --no-cache libc6-compat openssl
+
+WORKDIR /app
+
+# Install dependencies first (cache layer)
+COPY package.json package-lock.json* ./
+COPY prisma ./prisma/
+
+RUN npm ci
+
+# Generate Prisma client
+RUN npx prisma generate
+
+# Source code is mounted via volume — not copied
+# This enables hot reload
+
+EXPOSE 3000
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["sh", "-c", "npx prisma migrate dev --name init 2>/dev/null; npm run dev"]

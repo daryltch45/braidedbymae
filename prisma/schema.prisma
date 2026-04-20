@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Service {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  nameFr      String
+  nameEn      String
+  nameDe      String
+  descFr      String
+  descEn      String
+  descDe      String
+  priceMin    Int
+  priceMax    Int
+  durationMin Int
+  durationMax Int
+  imageUrl    String?
+  order       Int       @default(0)
+  active      Boolean   @default(true)
+  bookings    Booking[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Booking {
+  id             String        @id @default(cuid())
+  serviceId      String
+  service        Service       @relation(fields: [serviceId], references: [id])
+  clientName     String
+  clientPhone    String?
+  clientEmail    String
+  inspirationUrl String?
+  preferredDate  DateTime
+  preferredTime  String
+  location       String        @default("HOME")
+  travelCity     String?
+  paymentMethod  String        @default("CASH")
+  status         BookingStatus @default(PENDING)
+  adminNotes     String?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  REJECTED
+  CANCELLED
+  COMPLETED
+}
+
+model Review {
+  id          String       @id @default(cuid())
+  clientName  String
+  rating      Int
+  comment     String
+  serviceName String?
+  status      ReviewStatus @default(PENDING)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model BlockedDay {
+  id     String   @id @default(cuid())
+  date   DateTime
+  reason String?
+}
+
+model PortfolioImage {
+  id        String   @id @default(cuid())
+  url       String
+  alt       String?
+  category  String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}

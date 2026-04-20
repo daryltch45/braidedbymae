@@ -1,7 +1,7 @@
 # ============================================
 # BraidedByMae — Docker Compose (Development)
 # ============================================
-# Usage: docker compose -f docker-compose.dev.yml up --build 
+# Usage: docker compose -f docker-compose.dev.yml up --build
 
 services:
   # --- Next.js App (Dev with hot reload) ---

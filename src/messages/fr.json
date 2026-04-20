@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "title": "BraidedByMae — Tresses Africaines à Nuremberg",
+    "description": "Spécialiste des tresses africaines à Nuremberg, Fürth, Erlangen et Bamberg. Réservez votre séance dès maintenant."
+  },
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "booking": "Réserver",
+    "reviews": "Avis",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "L'art des tresses africaines",
+    "headline": "Vos cheveux,\nnotre passion",
+    "cta": "Réserver maintenant",
+    "scroll": "Défiler"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Des créations sur mesure pour sublimer vos cheveux",
+    "from": "À partir de",
+    "duration": "Durée",
+    "hours": "h",
+    "bookNow": "Réserver"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Découvrez nos réalisations",
+    "all": "Tous",
+    "boxBraids": "Box Braids",
+    "cornrows": "Cornrows",
+    "twists": "Twists",
+    "locs": "Locs",
+    "crochet": "Crochet",
+    "men": "Hommes"
+  },
+  "booking": {
+    "title": "Réserver",
+    "subtitle": "Choisissez votre service et votre créneau",
+    "steps": {
+      "service": "Service",
+      "datetime": "Date & Heure",
+      "contact": "Coordonnées",
+      "confirm": "Confirmation"
+    },
+    "form": {
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "phone": "Téléphone (optionnel)",
+      "date": "Date souhaitée",
+      "time": "Heure souhaitée",
+      "location": "Lieu",
+      "home": "Domicile (Mae)",
+      "travel": "À domicile (surcharge)",
+      "city": "Votre ville",
+      "payment": "Paiement",
+      "cash": "Espèces",
+      "online": "En ligne",
+      "inspiration": "Photo d'inspiration (optionnel)",
+      "submit": "Envoyer la demande",
+      "submitting": "Envoi en cours..."
+    },
+    "success": {
+      "title": "Demande envoyée !",
+      "message": "Mae vous contactera sous 24h pour confirmer votre rendez-vous."
+    }
+  },
+  "reviews": {
+    "title": "Avis Clients",
+    "subtitle": "Ce que disent nos clientes",
+    "leaveReview": "Laisser un avis",
+    "form": {
+      "name": "Votre nom",
+      "rating": "Note",
+      "service": "Service reçu (optionnel)",
+      "comment": "Votre avis",
+      "submit": "Soumettre"
+    }
+  },
+  "about": {
+    "title": "À propos de Mae",
+    "coverage": "Zone de couverture",
+    "cities": "Nuremberg, Fürth, Erlangen, Bamberg",
+    "travelSurcharge": "Supplément déplacement : 10–20€ selon la distance"
+  },
+  "contact": {
+    "title": "Contact",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "email": "Email",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité"
+  }
+}

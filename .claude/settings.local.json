@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rsync -a --exclude='.git' /tmp/braidedbymae/ /Users/daryltchienang/Documents/Projects/braidedbyMae/ && echo \"done\")",
+      "Bash(npm install framer-motion lenis @prisma/client next-intl react-hook-form @hookform/resolvers zod resend @react-email/components next-cloudinary clsx tailwind-merge lucide-react date-fns bcryptjs jsonwebtoken next-themes 2>&1 | tail -10)",
+      "Bash(npm install -D prisma @types/bcryptjs @types/jsonwebtoken 2>&1 | tail -5)",
+      "Bash(npm install -D prisma@5 @types/bcryptjs @types/jsonwebtoken 2>&1 | tail -8)",
+      "Bash(npm install @prisma/client@5 2>&1 | tail -5)",
+      "Bash(npx prisma init --datasource-provider postgresql 2>&1)",
+      "Bash(ls /Users/daryltchienang/Documents/Projects/braidedbyMae/.env* 2>/dev/null || echo \"no env files\")",
+      "Bash(npx tsc --noEmit 2>&1 | head -40)",
+      "Bash(rm -rf /Users/daryltchienang/Documents/Projects/braidedbyMae/.next && npx tsc --noEmit 2>&1 | head -40)",
+      "Bash(npx next build 2>&1 | tail -20)",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => k.toLowerCase\\(\\).includes\\('instagram'\\)\\); console.log\\(keys\\)\")",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => /insta/i.test\\(k\\)\\); console.log\\(keys.length ? keys : 'not found'\\); const keys2 = Object.keys\\(l\\).filter\\(k => /camera|image/i.test\\(k\\)\\).slice\\(0,5\\); console.log\\(keys2\\)\")"
+    ]
+  }
+}

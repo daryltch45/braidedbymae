@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "title": "BraidedByMae — Afrikanisches Haarflechten in Nürnberg",
+    "description": "Spezialistin für afrikanisches Haarflechten in Nürnberg, Fürth, Erlangen und Bamberg. Jetzt Termin buchen."
+  },
+  "nav": {
+    "services": "Leistungen",
+    "portfolio": "Portfolio",
+    "booking": "Buchen",
+    "reviews": "Bewertungen",
+    "about": "Über uns",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "tagline": "Die Kunst des afrikanischen Flechtens",
+    "headline": "Dein Haar,\nunsere Leidenschaft",
+    "cta": "Jetzt buchen",
+    "scroll": "Scrollen"
+  },
+  "services": {
+    "title": "Unsere Leistungen",
+    "subtitle": "Maßgeschneiderte Kreationen für Ihr Haar",
+    "from": "Ab",
+    "duration": "Dauer",
+    "hours": "Std",
+    "bookNow": "Buchen"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Entdecken Sie unsere Arbeiten",
+    "all": "Alle",
+    "boxBraids": "Box Braids",
+    "cornrows": "Cornrows",
+    "twists": "Twists",
+    "locs": "Locs",
+    "crochet": "Crochet",
+    "men": "Männer"
+  },
+  "booking": {
+    "title": "Termin buchen",
+    "subtitle": "Wählen Sie Ihren Service und Zeitslot",
+    "steps": {
+      "service": "Leistung",
+      "datetime": "Datum & Uhrzeit",
+      "contact": "Kontaktdaten",
+      "confirm": "Bestätigung"
+    },
+    "form": {
+      "name": "Vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefon (optional)",
+      "date": "Gewünschtes Datum",
+      "time": "Gewünschte Uhrzeit",
+      "location": "Ort",
+      "home": "Bei Mae zu Hause",
+      "travel": "Bei Ihnen zu Hause (Aufpreis)",
+      "city": "Ihre Stadt",
+      "payment": "Zahlung",
+      "cash": "Bargeld",
+      "online": "Online",
+      "inspiration": "Inspirationsfoto (optional)",
+      "submit": "Anfrage senden",
+      "submitting": "Wird gesendet..."
+    },
+    "success": {
+      "title": "Anfrage gesendet!",
+      "message": "Mae wird sich innerhalb von 24 Stunden bei Ihnen melden, um den Termin zu bestätigen."
+    }
+  },
+  "reviews": {
+    "title": "Kundenbewertungen",
+    "subtitle": "Was unsere Kundinnen sagen",
+    "leaveReview": "Bewertung hinterlassen",
+    "form": {
+      "name": "Ihr Name",
+      "rating": "Bewertung",
+      "service": "Erhaltene Leistung (optional)",
+      "comment": "Ihre Bewertung",
+      "submit": "Absenden"
+    }
+  },
+  "about": {
+    "title": "Über Mae",
+    "coverage": "Einzugsgebiet",
+    "cities": "Nürnberg, Fürth, Erlangen, Bamberg",
+    "travelSurcharge": "Anfahrtspauschale: 10–20€ je nach Entfernung"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "email": "E-Mail",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten",
+    "legal": "Impressum",
+    "privacy": "Datenschutzerklärung"
+  }
+}

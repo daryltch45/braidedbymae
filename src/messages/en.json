@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "title": "BraidedByMae — African Hair Braiding in Nuremberg",
+    "description": "African hair braiding specialist in Nuremberg, Fürth, Erlangen and Bamberg. Book your appointment now."
+  },
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "booking": "Book",
+    "reviews": "Reviews",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "The art of African braiding",
+    "headline": "Your hair,\nour passion",
+    "cta": "Book now",
+    "scroll": "Scroll"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Custom creations to enhance your hair",
+    "from": "From",
+    "duration": "Duration",
+    "hours": "h",
+    "bookNow": "Book"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Discover our work",
+    "all": "All",
+    "boxBraids": "Box Braids",
+    "cornrows": "Cornrows",
+    "twists": "Twists",
+    "locs": "Locs",
+    "crochet": "Crochet",
+    "men": "Men"
+  },
+  "booking": {
+    "title": "Book an Appointment",
+    "subtitle": "Choose your service and time slot",
+    "steps": {
+      "service": "Service",
+      "datetime": "Date & Time",
+      "contact": "Contact Info",
+      "confirm": "Confirmation"
+    },
+    "form": {
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone (optional)",
+      "date": "Preferred date",
+      "time": "Preferred time",
+      "location": "Location",
+      "home": "Mae's home",
+      "travel": "At your home (surcharge)",
+      "city": "Your city",
+      "payment": "Payment",
+      "cash": "Cash",
+      "online": "Online",
+      "inspiration": "Inspiration photo (optional)",
+      "submit": "Submit request",
+      "submitting": "Submitting..."
+    },
+    "success": {
+      "title": "Request sent!",
+      "message": "Mae will contact you within 24 hours to confirm your appointment."
+    }
+  },
+  "reviews": {
+    "title": "Client Reviews",
+    "subtitle": "What our clients say",
+    "leaveReview": "Leave a review",
+    "form": {
+      "name": "Your name",
+      "rating": "Rating",
+      "service": "Service received (optional)",
+      "comment": "Your review",
+      "submit": "Submit"
+    }
+  },
+  "about": {
+    "title": "About Mae",
+    "coverage": "Coverage area",
+    "cities": "Nuremberg, Fürth, Erlangen, Bamberg",
+    "travelSurcharge": "Travel surcharge: €10–20 depending on distance"
+  },
+  "contact": {
+    "title": "Contact",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "email": "Email",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "legal": "Legal notice",
+    "privacy": "Privacy policy"
+  }
+}

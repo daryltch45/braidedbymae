@@ -14,6 +14,7 @@
   "hero": {
     "tagline": "The art of African braiding",
     "headline": "Your hair,\nour passion",
+    "subtitle": "Custom African braiding in Nuremberg and surrounding areas",
     "cta": "Book now",
     "scroll": "Scroll"
   },
@@ -23,7 +24,43 @@
     "from": "From",
     "duration": "Duration",
     "hours": "h",
-    "bookNow": "Book"
+    "bookButton": "Book this style",
+    "boxBraids": {
+      "name": "Box Braids",
+      "description": "Classic individual braids available in various sizes and lengths. An elegant protective style that lasts 4 to 8 weeks.",
+      "price": "€60–120",
+      "durationRange": "3–6h"
+    },
+    "cornrows": {
+      "name": "Cornrows",
+      "description": "Braids woven flat against the scalp in straight or artistic patterns. Perfect for a clean, structured everyday look.",
+      "price": "€40–80",
+      "durationRange": "2–4h"
+    },
+    "twists": {
+      "name": "Twists",
+      "description": "Two-strand twists for a natural, voluminous finish. Ideal for protecting your hair while staying stylish.",
+      "price": "€50–100",
+      "durationRange": "2–5h"
+    },
+    "locs": {
+      "name": "Locs",
+      "description": "Installation and maintenance of temporary or permanent locs. A timeless style that showcases your personality.",
+      "price": "€60–120",
+      "durationRange": "3–6h"
+    },
+    "crochet": {
+      "name": "Crochet Braids",
+      "description": "Quick technique using pre-curled extensions attached by crochet hook. Natural, voluminous results in record time.",
+      "price": "€50–90",
+      "durationRange": "2–4h"
+    },
+    "men": {
+      "name": "Men's Braids",
+      "description": "Cornrows, twists and modern styles tailored for men. Clean, trendy cuts to define your personal style.",
+      "price": "€40–70",
+      "durationRange": "1–3h"
+    }
   },
   "portfolio": {
     "title": "Portfolio",

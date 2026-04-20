@@ -12,7 +12,8 @@
       "Bash(rm -rf /Users/daryltchienang/Documents/Projects/braidedbyMae/.next && npx tsc --noEmit 2>&1 | head -40)",
       "Bash(npx next build 2>&1 | tail -20)",
       "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => k.toLowerCase\\(\\).includes\\('instagram'\\)\\); console.log\\(keys\\)\")",
-      "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => /insta/i.test\\(k\\)\\); console.log\\(keys.length ? keys : 'not found'\\); const keys2 = Object.keys\\(l\\).filter\\(k => /camera|image/i.test\\(k\\)\\).slice\\(0,5\\); console.log\\(keys2\\)\")"
+      "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => /insta/i.test\\(k\\)\\); console.log\\(keys.length ? keys : 'not found'\\); const keys2 = Object.keys\\(l\\).filter\\(k => /camera|image/i.test\\(k\\)\\).slice\\(0,5\\); console.log\\(keys2\\)\")",
+      "Bash(npx tsc --noEmit 2>&1)"
     ]
   }
 }

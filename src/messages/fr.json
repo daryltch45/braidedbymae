@@ -14,16 +14,53 @@
   "hero": {
     "tagline": "L'art des tresses africaines",
     "headline": "Vos cheveux,\nnotre passion",
+    "subtitle": "Tresses africaines sur mesure à Nuremberg et ses environs",
     "cta": "Réserver maintenant",
     "scroll": "Défiler"
   },
   "services": {
-    "title": "Nos Services",
+    "title": "Nos Prestations",
     "subtitle": "Des créations sur mesure pour sublimer vos cheveux",
     "from": "À partir de",
     "duration": "Durée",
     "hours": "h",
-    "bookNow": "Réserver"
+    "bookButton": "Réserver ce style",
+    "boxBraids": {
+      "name": "Box Braids",
+      "description": "Tresses individuelles classiques, disponibles en différentes tailles et longueurs. Un style protecteur élégant qui dure 4 à 8 semaines.",
+      "price": "60–120€",
+      "durationRange": "3–6h"
+    },
+    "cornrows": {
+      "name": "Cornrows",
+      "description": "Tresses plaquées au cuir chevelu avec des motifs droits ou artistiques. Idéales pour un look net et structuré au quotidien.",
+      "price": "40–80€",
+      "durationRange": "2–4h"
+    },
+    "twists": {
+      "name": "Twists",
+      "description": "Vanilles deux brins pour un rendu naturel et volumineux. Parfaites pour protéger vos cheveux tout en restant stylée.",
+      "price": "50–100€",
+      "durationRange": "2–5h"
+    },
+    "locs": {
+      "name": "Locs",
+      "description": "Installation et entretien de locks temporaires ou permanentes. Un style intemporel qui met en valeur votre personnalité.",
+      "price": "60–120€",
+      "durationRange": "3–6h"
+    },
+    "crochet": {
+      "name": "Crochet Braids",
+      "description": "Technique rapide avec des mèches pré-bouclées fixées au crochet. Résultat naturel et volumineux en un temps record.",
+      "price": "50–90€",
+      "durationRange": "2–4h"
+    },
+    "men": {
+      "name": "Tresses Hommes",
+      "description": "Cornrows, twists et styles modernes adaptés aux hommes. Des coupes nettes et tendance pour affirmer votre style.",
+      "price": "40–70€",
+      "durationRange": "1–3h"
+    }
   },
   "portfolio": {
     "title": "Portfolio",

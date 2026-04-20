@@ -1,26 +1,59 @@
-import { useTranslations } from "next-intl";
+import Hero from "@/components/sections/Hero";
+import ServiceReveal from "@/components/sections/ServiceReveal";
+
+const services = [
+  {
+    key: "boxBraids",
+    image: "/images/portfolio/box-braids/IMG_4089.JPG",
+    reverse: false,
+    accent: "var(--color-primary)",
+  },
+  {
+    key: "cornrows",
+    image: "/images/portfolio/twists/IMG_4094.JPG",
+    reverse: true,
+    accent: "var(--color-secondary)",
+  },
+  {
+    key: "twists",
+    image: "/images/portfolio/twists/IMG_4093.JPG",
+    reverse: false,
+    accent: "var(--color-accent)",
+  },
+  {
+    key: "locs",
+    image: "/images/portfolio/box-braids/IMG_4090.JPG",
+    reverse: true,
+    accent: "var(--color-secondary)",
+  },
+  {
+    key: "crochet",
+    image: "/images/portfolio/crochet/IMG_4091.JPG",
+    reverse: false,
+    accent: "var(--color-primary)",
+  },
+  {
+    key: "men",
+    image: "/images/portfolio/crochet/IMG_4092.JPG",
+    reverse: true,
+    accent: "var(--color-accent)",
+  },
+];
 
 export default function HomePage() {
-  const t = useTranslations("hero");
-
   return (
-    <main className="flex flex-1 flex-col items-center justify-center min-h-screen bg-background">
-      <div className="text-center space-y-6 px-4">
-        <p className="font-accent text-xl text-accent">
-          {t("tagline")}
-        </p>
-        <h1 className="font-display text-5xl md:text-7xl font-bold leading-tight text-foreground">
-          BraidedByMae
-        </h1>
-        <p className="text-lg text-muted whitespace-pre-line">
-          {t("headline")}
-        </p>
-        <a
-          href="#booking"
-          className="inline-block px-8 py-4 rounded-full font-semibold text-white bg-primary transition-opacity hover:opacity-90"
-        >
-          {t("cta")}
-        </a>
+    <main>
+      <Hero />
+      <div id="services">
+        {services.map((service) => (
+          <ServiceReveal
+            key={service.key}
+            serviceKey={service.key}
+            imageSrc={service.image}
+            reverse={service.reverse}
+            accentColor={service.accent}
+          />
+        ))}
       </div>
     </main>
   );

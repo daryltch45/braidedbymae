@@ -13,6 +13,9 @@ dev:                   ## Start dev environment (hot reload)
 dev-build:             ## Rebuild and start dev environment
 	docker compose -f docker-compose.dev.yml up --build
 
+dev-up:             ## only start the .env 
+	docker compose -f docker-compose.dev.yml up
+
 dev-down:              ## Stop dev environment
 	docker compose -f docker-compose.dev.yml down
 

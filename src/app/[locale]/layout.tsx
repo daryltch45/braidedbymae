@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans, Dancing_Script } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
-import { ThemeProvider } from "next-themes";
+import { CustomThemeProvider } from "@/components/providers/ThemeProvider";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import SmoothScroll from "@/components/providers/SmoothScroll";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import "@/app/globals.css";
@@ -66,13 +67,15 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <CustomThemeProvider>
           <NextIntlClientProvider messages={messages}>
-            <Header />
-            {children}
-            <Footer />
+            <SmoothScroll>
+              <Header />
+              {children}
+              <Footer />
+            </SmoothScroll>
           </NextIntlClientProvider>
-        </ThemeProvider>
+        </CustomThemeProvider>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ── Design Tokens ──────────────────────────────────────── */
-@theme inline {
+@theme {
   /* Light mode colors */
   --color-background: #FFF8F0;
   --color-surface: #FFFFFF;
@@ -18,21 +18,17 @@
 }
 
 /* ── Dark mode overrides ─────────────────────────────────── */
-.dark {
-  --color-background: #0A0A0A;
-  --color-surface: #1A1A1A;
-  --color-primary: #FF8C42;
-  --color-secondary: #E85D75;
-  --color-accent: #FFD166;
-  --color-foreground: #F5F5F5;
-  --color-muted: #A0A0A0;
+.dark, [data-theme="dark"] {
+  --color-background: #0A0A0A !important;
+  --color-surface: #1A1A1A !important;
+  --color-primary: #FF8C42 !important;
+  --color-secondary: #E85D75 !important;
+  --color-accent: #FFD166 !important;
+  --color-foreground: #F5F5F5 !important;
+  --color-muted: #A0A0A0 !important;
 }
 
 /* ── Base styles ─────────────────────────────────────────── */
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);

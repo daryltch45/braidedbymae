@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { key: "services", href: "#services" },
   { key: "portfolio", href: "#portfolio" },
-  { key: "booking", href: "#booking" },
+  { key: "booking", href: null }, // locale-aware, built dynamically
   { key: "reviews", href: "#reviews" },
 ] as const;
 
@@ -91,7 +91,7 @@ export default function Header() {
               {navLinks.map((link) => (
                 <a
                   key={link.key}
-                  href={link.href}
+                  href={link.href ?? `/${currentLocale}/booking`}
                   className="text-sm font-medium text-muted hover:text-foreground transition-colors"
                 >
                   {t(link.key)}
@@ -178,7 +178,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <a
                 key={link.key}
-                href={link.href}
+                href={link.href ?? `/${currentLocale}/booking`}
                 onClick={() => setMobileOpen(false)}
                 className="text-2xl font-display font-semibold text-foreground hover:text-primary transition-colors"
               >

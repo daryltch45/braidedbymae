@@ -129,7 +129,23 @@
       "rating": "Rating",
       "service": "Service received (optional)",
       "comment": "Your review",
-      "submit": "Submit"
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "namePlaceholder": "Aminata D.",
+      "commentPlaceholder": "Share your experience...",
+      "serviceOptional": "— Optional —",
+      "subtitle": "Your review will be published after approval.",
+      "errors": {
+        "nameTooShort": "Minimum 2 characters",
+        "commentTooShort": "Minimum 10 characters",
+        "ratingRequired": "Please choose a rating",
+        "generic": "Something went wrong.",
+        "network": "Network error. Please try again."
+      }
+    },
+    "success": {
+      "title": "Thank you!",
+      "message": "Your review will be published after approval."
     }
   },
   "about": {
@@ -154,5 +170,10 @@
     "rights": "All rights reserved",
     "legal": "Legal notice",
     "privacy": "Privacy policy"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This style doesn't exist — and honestly, that's probably for the best.",
+    "cta": "Back to safety"
   }
 }

@@ -154,5 +154,10 @@
     "rights": "Alle Rechte vorbehalten",
     "legal": "Impressum",
     "privacy": "Datenschutzerklärung"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Diesen Style gibt es nicht — und ehrlich gesagt, ist das wahrscheinlich besser so.",
+    "cta": "Zurück in Sicherheit"
   }
 }

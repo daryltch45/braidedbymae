@@ -129,7 +129,23 @@
       "rating": "Note",
       "service": "Service reçu (optionnel)",
       "comment": "Votre avis",
-      "submit": "Soumettre"
+      "submit": "Soumettre",
+      "submitting": "Envoi...",
+      "namePlaceholder": "Aminata D.",
+      "commentPlaceholder": "Partagez votre expérience...",
+      "serviceOptional": "— Optionnel —",
+      "subtitle": "Votre avis sera publié après validation.",
+      "errors": {
+        "nameTooShort": "Minimum 2 caractères",
+        "commentTooShort": "Minimum 10 caractères",
+        "ratingRequired": "Veuillez choisir une note",
+        "generic": "Une erreur est survenue.",
+        "network": "Erreur réseau. Veuillez réessayer."
+      }
+    },
+    "success": {
+      "title": "Merci pour votre avis !",
+      "message": "Votre avis sera publié après validation."
     }
   },
   "about": {
@@ -154,5 +170,10 @@
     "rights": "Tous droits réservés",
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "Ce style n'existe pas — et honnêtement, c'est sûrement mieux comme ça.",
+    "cta": "Retour à la sécurité"
   }
 }

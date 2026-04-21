@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { StarRating } from "@/components/ui/StarRating";
+import ReviewForm from "./ReviewForm";
 
 const reviewKeys = ["review1", "review2", "review3"] as const;
 
@@ -53,20 +54,20 @@ export default function Reviews() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* Leave a review */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          id="review-form"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="max-w-lg mx-auto mt-16 bg-surface rounded-3xl border border-foreground/10 p-8"
         >
-          <a
-            href="#review-form"
-            className="inline-block px-8 py-4 rounded-full font-semibold border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all"
-          >
+          <h3 className="font-display text-2xl font-bold text-foreground mb-1">
             {t("leaveReview")}
-          </a>
+          </h3>
+          <p className="text-muted text-sm mb-6">Votre avis sera publié après validation.</p>
+          <ReviewForm />
         </motion.div>
       </div>
     </section>

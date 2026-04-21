@@ -13,21 +13,37 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center bg-background px-4"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4"
     >
+      {/* Video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover scale-105 blur-sm"
+      >
+        <source src="/images/home_video_pinterest.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/55" />
+
+      {/* Content */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-center space-y-6"
+        className="relative z-10 text-center space-y-6"
       >
         <p className="font-accent text-lg md:text-xl text-accent">
           {t("tagline")}
         </p>
-        <h1 className="font-display text-5xl sm:text-6xl md:text-8xl font-bold text-foreground leading-tight">
+        <h1 className="font-display text-5xl sm:text-6xl md:text-8xl font-bold text-white leading-tight drop-shadow-lg">
           BraidedByMae
         </h1>
-        <p className="text-base md:text-lg text-muted whitespace-pre-line max-w-lg mx-auto">
+        <p className="text-base md:text-lg text-white/80 whitespace-pre-line max-w-lg mx-auto">
           {t("subtitle")}
         </p>
         <a
@@ -40,11 +56,11 @@ export default function Hero() {
 
       {/* Scroll hint */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <ChevronDown className="h-6 w-6 text-muted" />
+        <ChevronDown className="h-6 w-6 text-white/60" />
       </motion.div>
     </section>
   );

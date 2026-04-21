@@ -14,7 +14,8 @@
       "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => k.toLowerCase\\(\\).includes\\('instagram'\\)\\); console.log\\(keys\\)\")",
       "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => /insta/i.test\\(k\\)\\); console.log\\(keys.length ? keys : 'not found'\\); const keys2 = Object.keys\\(l\\).filter\\(k => /camera|image/i.test\\(k\\)\\).slice\\(0,5\\); console.log\\(keys2\\)\")",
       "Bash(npx tsc --noEmit 2>&1)",
-      "Bash(npm install nodemailer && npm install -D @types/nodemailer tsx)"
+      "Bash(npm install nodemailer && npm install -D @types/nodemailer tsx)",
+      "Bash(DATABASE_URL=postgresql://braidedbymae:braidedbymae_dev@localhost:5433/braidedbymae npm run db:seed 2>&1)"
     ]
   }
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
@@ -9,6 +10,15 @@ export default function Hero() {
   const t = useTranslations("hero");
   const params = useParams();
   const locale = params.locale as string;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    function onPageShow(e: PageTransitionEvent) {
+      if (e.persisted) videoRef.current?.play();
+    }
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, []);
 
   return (
     <section
@@ -17,6 +27,7 @@ export default function Hero() {
     >
       {/* Video background */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted

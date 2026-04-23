@@ -1,6 +1,21 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { db as prisma } from "@/lib/db";
 import BookingForm from "@/components/booking/BookingForm";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "booking" });
+  const tMeta = await getTranslations({ locale, namespace: "meta" });
+  return {
+    title: `${t("title")} — BraidedByMae`,
+    description: tMeta("description"),
+  };
+}
 
 async function getServices() {
   try {

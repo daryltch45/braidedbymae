@@ -18,7 +18,7 @@ services:
       - /app/node_modules        # Prevent host node_modules from overriding
       - /app/.next               # Prevent .next from being overwritten
     env_file:
-      - .env.local
+
     environment:
       - NODE_ENV=development
       - DATABASE_URL=postgresql://braidedbymae:braidedbymae_dev@db:5432/braidedbymae

@@ -35,9 +35,29 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://braidedbymae.de";
   return {
     title: t("title"),
     description: t("description"),
+    metadataBase: new URL(baseUrl),
+    alternates: {
+      canonical: `/${locale}`,
+      languages: { fr: "/fr", en: "/en", de: "/de" },
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: `${baseUrl}/${locale}`,
+      siteName: "BraidedByMae",
+      locale: locale === "fr" ? "fr_FR" : locale === "de" ? "de_DE" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+    },
+    robots: { index: true, follow: true },
   };
 }
 
@@ -67,11 +87,17 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-white focus:font-semibold"
+        >
+          Skip to content
+        </a>
         <CustomThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <SmoothScroll>
               <Header />
-              {children}
+              <div id="main-content">{children}</div>
               <Footer />
             </SmoothScroll>
           </NextIntlClientProvider>

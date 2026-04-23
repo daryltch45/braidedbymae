@@ -129,7 +129,23 @@
       "rating": "Bewertung",
       "service": "Erhaltene Leistung (optional)",
       "comment": "Ihre Bewertung",
-      "submit": "Absenden"
+      "submit": "Absenden",
+      "submitting": "Wird gesendet...",
+      "namePlaceholder": "Aminata D.",
+      "commentPlaceholder": "Teilen Sie Ihre Erfahrung...",
+      "serviceOptional": "— Optional —",
+      "subtitle": "Ihre Bewertung wird nach Prüfung veröffentlicht.",
+      "errors": {
+        "nameTooShort": "Mindestens 2 Zeichen",
+        "commentTooShort": "Mindestens 10 Zeichen",
+        "ratingRequired": "Bitte wählen Sie eine Bewertung",
+        "generic": "Ein Fehler ist aufgetreten.",
+        "network": "Netzwerkfehler. Bitte versuchen Sie es erneut."
+      }
+    },
+    "success": {
+      "title": "Vielen Dank!",
+      "message": "Ihre Bewertung wird nach Prüfung veröffentlicht."
     }
   },
   "about": {

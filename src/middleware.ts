@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
-import { verifyAdminToken } from "./lib/auth-edge";
+import { verifyAdminTokenEdge } from "./lib/auth-edge";
 
 const intlMiddleware = createIntlMiddleware(routing);
 
@@ -16,7 +16,7 @@ export default async function middleware(request: NextRequest) {
 
   if (isAdminRoute && !isLoginPage) {
     const token = request.cookies.get("admin_token")?.value;
-    const isAuthenticated = token ? verifyAdminToken(token) : false;
+    const isAuthenticated = token ? await verifyAdminTokenEdge(token) : false;
 
     if (!isAuthenticated) {
       // Extract locale from path

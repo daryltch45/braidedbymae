@@ -11,7 +11,7 @@ export default function Reviews() {
   const t = useTranslations("reviews");
 
   return (
-    <section id="reviews" className="py-24 px-4 bg-background">
+    <section id="reviews" className="py-28 px-4 bg-background">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <motion.div
@@ -22,7 +22,7 @@ export default function Reviews() {
           className="text-center mb-16"
         >
           <p className="font-accent text-lg text-accent mb-2">{t("subtitle")}</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight">
             {t("title")}
           </h2>
         </motion.div>
@@ -36,7 +36,7 @@ export default function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.12 }}
-              className="bg-surface rounded-2xl p-6 border border-foreground/5 space-y-4"
+              className="bg-surface rounded-2xl p-7 border border-foreground/5 shadow-[var(--shadow-card)] space-y-4 transition-shadow duration-300 hover:shadow-[var(--shadow-elevated)]"
             >
               <StarRating rating={5} />
 
@@ -44,7 +44,7 @@ export default function Reviews() {
                 &ldquo;{t(`${key}.comment`)}&rdquo;
               </p>
 
-              <div>
+              <div className="pt-2 border-t border-foreground/5">
                 <p className="text-sm font-semibold text-foreground">
                   {t(`${key}.name`)}
                 </p>
@@ -61,12 +61,12 @@ export default function Reviews() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="max-w-lg mx-auto mt-16 bg-surface rounded-3xl border border-foreground/10 p-8"
+          className="max-w-lg mx-auto mt-16 bg-surface rounded-3xl border border-foreground/10 shadow-[var(--shadow-card)] p-8"
         >
-          <h3 className="font-display text-2xl font-bold text-foreground mb-1">
+          <h3 className="font-display text-2xl font-bold text-foreground tracking-tight mb-1">
             {t("leaveReview")}
           </h3>
-          <p className="text-muted text-sm mb-6">Votre avis sera publié après validation.</p>
+          <p className="text-muted text-sm mb-6">{t("form.subtitle")}</p>
           <ReviewForm />
         </motion.div>
       </div>

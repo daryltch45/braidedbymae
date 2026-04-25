@@ -17,7 +17,7 @@ services:
       - .:/app
       - /app/node_modules        # Prevent host node_modules from overriding
       - /app/.next               # Prevent .next from being overwritten
-    env_file:
+    env_file: ./.env.local
 
     environment:
       - NODE_ENV=development

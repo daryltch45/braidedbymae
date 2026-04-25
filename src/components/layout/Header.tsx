@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { usePathname, useRouter } from "next/navigation";
@@ -9,9 +9,10 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { key: "services", hash: "services" },
-  { key: "portfolio", hash: "portfolio" },
-  { key: "booking", hash: null }, // separate page
   { key: "reviews", hash: "reviews" },
+  { key: "portfolio", hash: null }, // separate page
+  { key: "booking", hash: null }, // separate page
+  { key: "about", hash: null }, // separate page
 ] as const;
 
 const locales = [
@@ -29,11 +30,10 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
   const langRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -86,8 +86,7 @@ export default function Header() {
   const isHomePage = pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`;
 
   function getNavHref(link: (typeof navLinks)[number]) {
-    if (link.hash === null) return `/${currentLocale}/booking`;
-    // Always use full path so navigation works from any page
+    if (link.hash === null) return `/${currentLocale}/${link.key}`;
     return `/${currentLocale}#${link.hash}`;
   }
 
@@ -119,7 +118,7 @@ export default function Header() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <a href={`/${currentLocale}`} className="font-display text-xl font-bold text-foreground">
+            <a href={`/${currentLocale}`} className="font-display text-xl font-bold text-foreground cursor-pointer transition-colors duration-200 hover:text-primary">
               BraidedByMae
             </a>
 
@@ -130,7 +129,7 @@ export default function Header() {
                   key={link.key}
                   href={getNavHref(link)}
                   onClick={(e) => handleNavClick(e, link)}
-                  className="text-sm font-medium text-muted hover:text-foreground transition-colors"
+                  className="text-sm font-medium text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
                 >
                   {t(link.key)}
                 </a>
@@ -145,7 +144,7 @@ export default function Header() {
                   href="https://www.instagram.com/mae_braided/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full p-2 text-muted hover:text-foreground transition-colors"
+                  className="rounded-full p-2 text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
                   aria-label="Instagram"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
@@ -158,7 +157,7 @@ export default function Header() {
                   href="https://www.tiktok.com/@braidedbymae"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full p-2 text-muted hover:text-foreground transition-colors"
+                  className="rounded-full p-2 text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
                   aria-label="TikTok"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
@@ -171,20 +170,20 @@ export default function Header() {
               <div className="relative" ref={langRef}>
                 <button
                   onClick={() => setLangOpen(!langOpen)}
-                  className="flex items-center gap-1 rounded-full px-3 py-2 text-sm text-muted hover:text-foreground transition-colors"
+                  className="flex items-center gap-1 rounded-full px-3 py-2 text-sm text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
                   aria-label="Switch language"
                 >
                   <Globe className="h-4 w-4" />
                   <span className="uppercase">{currentLocale}</span>
                 </button>
                 {langOpen && (
-                  <div className="absolute right-0 top-full mt-1 rounded-lg bg-surface shadow-lg border border-foreground/10 py-1 min-w-[80px]">
+                  <div className="absolute right-0 top-full mt-1 rounded-xl bg-surface shadow-[var(--shadow-elevated)] border border-foreground/10 py-1 min-w-[80px]">
                     {locales.map((locale) => (
                       <button
                         key={locale.code}
                         onClick={() => switchLocale(locale.code)}
                         className={cn(
-                          "block w-full px-4 py-2 text-left text-sm transition-colors",
+                          "block w-full px-4 py-2 text-left text-sm transition-colors duration-200 cursor-pointer",
                           locale.code === currentLocale
                             ? "text-primary font-medium"
                             : "text-muted hover:text-foreground"
@@ -201,7 +200,7 @@ export default function Header() {
               {mounted && (
                 <button
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="rounded-full p-2 text-muted hover:text-foreground transition-colors"
+                  className="rounded-full p-2 text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
                   aria-label="Toggle dark mode"
                 >
                   {theme === "dark" ? (
@@ -215,7 +214,7 @@ export default function Header() {
               {/* Mobile hamburger */}
               <button
                 onClick={() => setMobileOpen(true)}
-                className="md:hidden rounded-full p-2 text-muted hover:text-foreground transition-colors"
+                className="md:hidden rounded-full p-2 text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
                 aria-label="Open menu"
               >
                 <Menu className="h-5 w-5" />

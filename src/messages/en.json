@@ -72,7 +72,9 @@
     "locs": "Locs",
     "crochet": "Crochet",
     "men": "Men",
-    "close": "Close"
+    "close": "Close",
+    "prevPage": "Previous page",
+    "nextPage": "Next page"
   },
   "booking": {
     "title": "Book an Appointment",
@@ -98,7 +100,14 @@
       "online": "Online",
       "inspiration": "Inspiration photo (optional)",
       "submit": "Submit request",
-      "submitting": "Submitting..."
+      "submitting": "Submitting...",
+      "next": "Continue",
+      "back": "Back",
+      "confirm": "Confirm",
+      "selectDateFirst": "Select a date first",
+      "service": "Service",
+      "estimatedPrice": "Estimated price",
+      "consent": "By submitting this request, you agree that Mae may contact you by email to confirm the appointment."
     },
     "success": {
       "title": "Request sent!",

@@ -2,10 +2,10 @@
 
 import { useTranslations } from "next-intl";
 import { UseFormReturn } from "react-hook-form";
-import { useState, useEffect } from "react";
-import { format, addDays, isBefore, startOfDay, getDay } from "date-fns";
+import { useState } from "react";
+import { format, isBefore, startOfDay, getDay } from "date-fns";
 import { fr } from "date-fns/locale";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { BookingFormData } from "@/lib/booking-schema";
 
@@ -165,7 +165,7 @@ export default function Step2DateTime({
         <div>
           <p className="text-sm font-semibold text-foreground mb-3">{t("time")}</p>
           {!selectedDate ? (
-            <p className="text-muted text-sm">Sélectionnez d&apos;abord une date</p>
+            <p className="text-muted text-sm">{t("selectDateFirst")}</p>
           ) : (
             <div className="grid grid-cols-3 gap-2">
               {TIME_SLOTS.map((slot) => (
@@ -197,17 +197,18 @@ export default function Step2DateTime({
         <button
           type="button"
           onClick={onBack}
-          className="px-6 py-3 rounded-full border border-foreground/20 text-muted hover:text-foreground hover:border-foreground/40 font-medium transition-colors"
+          className="px-6 py-3 rounded-full border border-foreground/20 text-muted hover:text-foreground hover:border-foreground/40 font-medium cursor-pointer transition-colors"
         >
-          ← Retour
+          &larr; {t("back")}
         </button>
         <button
           type="button"
           onClick={handleNext}
           disabled={!selectedDate || !selectedTime}
-          className="px-8 py-3 rounded-full bg-primary text-white font-semibold hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+          className="group inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-semibold cursor-pointer hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          Coordonnées →
+          {t("next")}
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </button>
       </div>
     </div>

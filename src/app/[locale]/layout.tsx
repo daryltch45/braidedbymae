@@ -6,6 +6,7 @@ import { CustomThemeProvider } from "@/components/providers/ThemeProvider";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import SmoothScroll from "@/components/providers/SmoothScroll";
+import PageRemount from "@/components/providers/PageRemount";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import "@/app/globals.css";
@@ -97,7 +98,9 @@ export default async function LocaleLayout({
           <NextIntlClientProvider messages={messages}>
             <SmoothScroll>
               <Header />
-              <div id="main-content">{children}</div>
+              <PageRemount>
+                <div id="main-content" className="flex-1">{children}</div>
+              </PageRemount>
               <Footer />
             </SmoothScroll>
           </NextIntlClientProvider>

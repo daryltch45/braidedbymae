@@ -41,14 +41,14 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-foreground/10 bg-surface">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div className="space-y-3">
-            <h3 className="font-display text-xl font-bold text-foreground">
+            <h3 className="font-display text-xl font-bold text-foreground tracking-tight">
               BraidedByMae
             </h3>
-            <p className="text-sm text-muted">
+            <p className="text-sm text-muted leading-relaxed">
               {tAbout("cities")}
             </p>
           </div>
@@ -58,17 +58,21 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-foreground">
               {tContact("title")}
             </h4>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <a
                 href="https://www.instagram.com/mae_braided/"
-                className="text-muted hover:text-primary transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full p-2.5 text-muted hover:text-primary hover:bg-primary/5 transition-all duration-200 cursor-pointer"
                 aria-label={tContact("instagram")}
               >
                 <InstagramIcon className="h-5 w-5" />
               </a>
               <a
                 href="https://www.tiktok.com/@braidedbymae"
-                className="text-muted hover:text-primary transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full p-2.5 text-muted hover:text-primary hover:bg-primary/5 transition-all duration-200 cursor-pointer"
                 aria-label={tContact("tiktok")}
               >
                 <TikTokIcon className="h-5 w-5" />
@@ -78,18 +82,18 @@ export default function Footer() {
 
           {/* Legal */}
           <div className="space-y-3 md:text-right">
-            <div className="flex flex-col gap-1 text-sm text-muted">
-              <a href="#" className="hover:text-foreground transition-colors">
+            <div className="flex flex-col gap-1.5 text-sm text-muted">
+              <a href="#" className="hover:text-foreground transition-colors duration-200 cursor-pointer">
                 {t("legal")}
               </a>
-              <a href="#" className="hover:text-foreground transition-colors">
+              <a href="#" className="hover:text-foreground transition-colors duration-200 cursor-pointer">
                 {t("privacy")}
               </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-foreground/10 text-center text-sm text-muted">
+        <div className="mt-10 pt-8 border-t border-foreground/5 text-center text-sm text-muted">
           &copy; 2026 BraidedByMae. {t("rights")}.
         </div>
       </div>

@@ -4,7 +4,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { UseFormReturn } from "react-hook-form";
 import { format } from "date-fns";
 import { fr as frLocale, enUS, de as deLocale } from "date-fns/locale";
-import { Loader2 } from "lucide-react";
+import { Loader2, ArrowRight } from "lucide-react";
 import type { BookingFormData, ServiceData } from "@/lib/booking-schema";
 
 interface Step4ConfirmProps {
@@ -38,7 +38,7 @@ export default function Step4Confirm({
     : "—";
 
   const rows: { label: string; value: string }[] = [
-    { label: "Service", value: service ? getServiceName(service) : "—" },
+    { label: t("service"), value: service ? getServiceName(service) : "—" },
     { label: t("date"), value: formattedDate },
     { label: t("time"), value: values.preferredTime },
     { label: t("name"), value: values.clientName },
@@ -55,7 +55,7 @@ export default function Step4Confirm({
       label: t("payment"),
       value: values.paymentMethod === "CASH" ? t("cash") : t("online"),
     },
-    ...(service ? [{ label: "Prix estimé", value: `${service.priceMin}–${service.priceMax}€` }] : []),
+    ...(service ? [{ label: t("estimatedPrice"), value: `${service.priceMin}–${service.priceMax}€` }] : []),
   ];
 
   return (
@@ -73,7 +73,7 @@ export default function Step4Confirm({
       </div>
 
       <p className="text-xs text-muted mb-6">
-        En envoyant cette demande, vous acceptez que Mae vous contacte par email pour confirmer le rendez-vous.
+        {t("consent")}
       </p>
 
       <div className="flex justify-between">
@@ -81,17 +81,18 @@ export default function Step4Confirm({
           type="button"
           onClick={onBack}
           disabled={isSubmitting}
-          className="px-6 py-3 rounded-full border border-foreground/20 text-muted hover:text-foreground hover:border-foreground/40 font-medium transition-colors disabled:opacity-40"
+          className="px-6 py-3 rounded-full border border-foreground/20 text-muted hover:text-foreground hover:border-foreground/40 font-medium cursor-pointer transition-colors disabled:opacity-40"
         >
-          ← Retour
+          &larr; {t("back")}
         </button>
         <button
           type="submit"
           disabled={isSubmitting}
-          className="px-8 py-3 rounded-full bg-primary text-white font-semibold hover:opacity-90 transition-opacity disabled:opacity-60 flex items-center gap-2"
+          className="group inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-semibold cursor-pointer hover:opacity-90 transition-opacity disabled:opacity-60"
         >
           {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" />}
           {isSubmitting ? t("submitting") : t("submit")}
+          {!isSubmitting && <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />}
         </button>
       </div>
     </div>

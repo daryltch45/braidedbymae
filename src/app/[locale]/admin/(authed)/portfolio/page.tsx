@@ -1,4 +1,3 @@
-import { db } from "@/lib/db";
 import AdminPortfolioClient from "@/components/admin/AdminPortfolioClient";
 import path from "path";
 import fs from "fs";

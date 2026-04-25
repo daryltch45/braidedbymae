@@ -1,47 +1,46 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
-import { useMotionValue } from "framer-motion";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
-  const lenisScrollY = useMotionValue(0);
   const lenisRef = useRef<Lenis | null>(null);
   const rafRef = useRef<number>(0);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    function initLenis() {
-      // Tear down any existing instance before creating a new one
-      if (lenisRef.current) {
-        cancelAnimationFrame(rafRef.current);
-        lenisRef.current.destroy();
-      }
-
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
-      lenisRef.current = lenis;
-
-      lenis.on("scroll", ({ scroll }: { scroll: number }) => {
-        lenisScrollY.set(scroll);
-        window.dispatchEvent(new Event("scroll"));
-      });
-
-      function raf(time: number) {
-        lenis.raf(time);
-        rafRef.current = requestAnimationFrame(raf);
-      }
-      rafRef.current = requestAnimationFrame(raf);
-
-      const resizeObserver = new ResizeObserver(() => lenis.resize());
-      resizeObserver.observe(document.body);
-      return resizeObserver;
+  const initLenis = useCallback(() => {
+    if (lenisRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      lenisRef.current.destroy();
+      lenisRef.current = null;
     }
 
-    const resizeObserver = initLenis();
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+    lenisRef.current = lenis;
 
-    // Reinitialize when page is restored from bfcache (browser Back button)
+    lenis.on("scroll", () => {
+      window.dispatchEvent(new Event("scroll"));
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      rafRef.current = requestAnimationFrame(raf);
+    }
+    rafRef.current = requestAnimationFrame(raf);
+  }, []);
+
+  useEffect(() => {
+    initLenis();
+
+    const resizeObserver = new ResizeObserver(() => {
+      lenisRef.current?.resize();
+    });
+    resizeObserver.observe(document.body);
+
     function onPageShow(e: PageTransitionEvent) {
       if (e.persisted) initLenis();
     }
@@ -51,9 +50,25 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       cancelAnimationFrame(rafRef.current);
       resizeObserver.disconnect();
       lenisRef.current?.destroy();
+      lenisRef.current = null;
       window.removeEventListener("pageshow", onPageShow);
     };
-  }, [lenisScrollY]);
+  }, [initLenis]);
+
+  // Reinitialize Lenis on route change (fixes back button issue)
+  useEffect(() => {
+    // Skip the initial mount — handled by the effect above
+    const timer = setTimeout(() => {
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(0, { immediate: true });
+        lenisRef.current.resize();
+        // Force a scroll event so Framer Motion recalculates IntersectionObserver
+        window.dispatchEvent(new Event("scroll"));
+      }
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   return <>{children}</>;
 }

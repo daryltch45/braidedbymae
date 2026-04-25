@@ -1,7 +1,5 @@
 import Hero from "@/components/sections/Hero";
 import ServiceReveal from "@/components/sections/ServiceReveal";
-import Portfolio from "@/components/sections/Portfolio";
-import About from "@/components/sections/About";
 import Reviews from "@/components/sections/Reviews";
 import ContactCTA from "@/components/sections/ContactCTA";
 
@@ -59,8 +57,6 @@ export default function HomePage() {
           />
         ))}
       </div>
-      <Portfolio />
-      <About />
       <Reviews />
       <ContactCTA />
     </main>

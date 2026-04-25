@@ -3,12 +3,13 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { MapPin, Calendar, Home } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
   const t = useTranslations("about");
 
   return (
-    <section id="about" className="py-24 px-4 bg-surface">
+    <section id="about" className="py-28 px-4">
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           {/* Text side */}
@@ -21,7 +22,7 @@ export default function About() {
           >
             <div>
               <p className="font-accent text-lg text-accent mb-2">Mae</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight">
                 {t("title")}
               </h2>
             </div>
@@ -30,9 +31,11 @@ export default function About() {
               {t("story")}
             </p>
 
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 mt-0.5 shrink-0 text-primary" />
+            <div className="space-y-5">
+              <div className="flex items-start gap-4">
+                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                  <MapPin className="h-5 w-5 text-primary" />
+                </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground mb-0.5">
                     {t("coverageTitle")}
@@ -41,19 +44,23 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
-                <Home className="h-5 w-5 mt-0.5 shrink-0 text-secondary" />
-                <p className="text-sm text-muted">{t("homeService")}</p>
+              <div className="flex items-start gap-4">
+                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-secondary/10">
+                  <Home className="h-5 w-5 text-secondary" />
+                </div>
+                <p className="text-sm text-muted pt-2.5">{t("homeService")}</p>
               </div>
 
-              <div className="flex items-start gap-3">
-                <Calendar className="h-5 w-5 mt-0.5 shrink-0 text-accent" />
-                <p className="text-sm text-muted">{t("availability")}</p>
+              <div className="flex items-start gap-4">
+                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/10">
+                  <Calendar className="h-5 w-5 text-accent" />
+                </div>
+                <p className="text-sm text-muted pt-2.5">{t("availability")}</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Visual side — decorative brand card */}
+          {/* Photo side */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -61,41 +68,19 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="relative flex items-center justify-center"
           >
-            <div className="relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden bg-background">
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-8 text-center">
-                <div
-                  className="w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl font-display font-bold"
-                  style={{ backgroundColor: "var(--color-primary)" }}
-                >
-                  M
-                </div>
-                <div>
-                  <p className="font-display text-2xl font-bold text-foreground">
-                    BraidedByMae
-                  </p>
-                  <p className="font-accent text-base text-accent mt-1">
-                    Nuremberg
-                  </p>
-                </div>
-                <div className="flex gap-2">
-                  {["#E85D04", "#9B2226", "#FFB703"].map((color) => (
-                    <div
-                      key={color}
-                      className="w-4 h-4 rounded-full"
-                      style={{ backgroundColor: color }}
-                    />
-                  ))}
-                </div>
+            <div className="relative w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-[var(--shadow-elevated)]">
+              <Image
+                src="/images/about/mae_profil_pic.jpeg"
+                alt="Mae — BraidedByMae, Nuremberg"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-surface/90 backdrop-blur-sm rounded-2xl px-4 py-3">
+                <p className="font-display font-bold text-foreground">Mae</p>
+                <p className="font-accent text-sm text-accent">Nuremberg</p>
               </div>
-              {/* Decorative gradient rings */}
-              <div
-                className="absolute -top-16 -right-16 w-48 h-48 rounded-full opacity-20"
-                style={{ backgroundColor: "var(--color-primary)" }}
-              />
-              <div
-                className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full opacity-10"
-                style={{ backgroundColor: "var(--color-accent)" }}
-              />
             </div>
           </motion.div>
         </div>

@@ -72,7 +72,9 @@
     "locs": "Locs",
     "crochet": "Crochet",
     "men": "Hommes",
-    "close": "Fermer"
+    "close": "Fermer",
+    "prevPage": "Page précédente",
+    "nextPage": "Page suivante"
   },
   "booking": {
     "title": "Réserver",
@@ -98,7 +100,14 @@
       "online": "En ligne",
       "inspiration": "Photo d'inspiration (optionnel)",
       "submit": "Envoyer la demande",
-      "submitting": "Envoi en cours..."
+      "submitting": "Envoi en cours...",
+      "next": "Continuer",
+      "back": "Retour",
+      "confirm": "Confirmer",
+      "selectDateFirst": "Sélectionnez d'abord une date",
+      "service": "Service",
+      "estimatedPrice": "Prix estimé",
+      "consent": "En envoyant cette demande, vous acceptez que Mae vous contacte par email pour confirmer le rendez-vous."
     },
     "success": {
       "title": "Demande envoyée !",

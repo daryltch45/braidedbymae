@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { UseFormReturn } from "react-hook-form";
 import { cn } from "@/lib/utils";
+import { ArrowRight, Home, Car, Banknote, CreditCard } from "lucide-react";
 import type { BookingFormData } from "@/lib/booking-schema";
 
 interface Step3ContactProps {
@@ -85,13 +86,16 @@ export default function Step3Contact({ form, onNext, onBack }: Step3ContactProps
               type="button"
               onClick={() => setValue("location", loc, { shouldValidate: true })}
               className={cn(
-                "flex-1 py-3 rounded-xl border-2 text-sm font-medium transition-all",
+                "flex-1 py-3 rounded-xl border-2 text-sm font-medium transition-all cursor-pointer",
                 location === loc
                   ? "border-primary bg-primary/5 text-primary"
                   : "border-foreground/10 text-muted hover:border-primary/30"
               )}
             >
-              {loc === "HOME" ? `🏠 ${t("home")}` : `🚗 ${t("travel")}`}
+              <span className="inline-flex items-center gap-2">
+                {loc === "HOME" ? <Home className="h-4 w-4" /> : <Car className="h-4 w-4" />}
+                {loc === "HOME" ? t("home") : t("travel")}
+              </span>
             </button>
           ))}
         </div>
@@ -117,13 +121,16 @@ export default function Step3Contact({ form, onNext, onBack }: Step3ContactProps
               type="button"
               onClick={() => setValue("paymentMethod", method, { shouldValidate: true })}
               className={cn(
-                "flex-1 py-3 rounded-xl border-2 text-sm font-medium transition-all",
+                "flex-1 py-3 rounded-xl border-2 text-sm font-medium transition-all cursor-pointer",
                 paymentMethod === method
                   ? "border-primary bg-primary/5 text-primary"
                   : "border-foreground/10 text-muted hover:border-primary/30"
               )}
             >
-              {method === "CASH" ? `💵 ${t("cash")}` : `💳 ${t("online")}`}
+              <span className="inline-flex items-center gap-2">
+                {method === "CASH" ? <Banknote className="h-4 w-4" /> : <CreditCard className="h-4 w-4" />}
+                {method === "CASH" ? t("cash") : t("online")}
+              </span>
             </button>
           ))}
         </div>
@@ -143,16 +150,17 @@ export default function Step3Contact({ form, onNext, onBack }: Step3ContactProps
         <button
           type="button"
           onClick={onBack}
-          className="px-6 py-3 rounded-full border border-foreground/20 text-muted hover:text-foreground hover:border-foreground/40 font-medium transition-colors"
+          className="px-6 py-3 rounded-full border border-foreground/20 text-muted hover:text-foreground hover:border-foreground/40 font-medium cursor-pointer transition-colors"
         >
-          ← Retour
+          &larr; {t("back")}
         </button>
         <button
           type="button"
           onClick={handleNext}
-          className="px-8 py-3 rounded-full bg-primary text-white font-semibold hover:opacity-90 transition-opacity"
+          className="group inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-semibold cursor-pointer hover:opacity-90 transition-opacity"
         >
-          Confirmer →
+          {t("confirm")}
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </button>
       </div>
     </div>

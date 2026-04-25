@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import Image from "next/image";
-import { Clock } from "lucide-react";
+import { Clock, ArrowRight } from "lucide-react";
 
 interface ServiceRevealProps {
   serviceKey: string;
@@ -54,7 +54,7 @@ export default function ServiceReveal({
           {/* Image side */}
           <motion.div
             style={{ clipPath }}
-            className="w-full md:w-1/2 relative aspect-[3/4] md:aspect-[4/5] rounded-2xl overflow-hidden"
+            className="w-full md:w-1/2 relative aspect-[3/4] md:aspect-[4/5] rounded-2xl overflow-hidden shadow-[var(--shadow-elevated)]"
           >
             <Image
               src={imageSrc}
@@ -63,6 +63,7 @@ export default function ServiceReveal({
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           </motion.div>
 
           {/* Text side */}
@@ -72,11 +73,11 @@ export default function ServiceReveal({
           >
             {/* Accent line */}
             <div
-              className="w-16 h-1 rounded-full"
+              className="w-12 h-1 rounded-full"
               style={{ backgroundColor: accentColor }}
             />
 
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight">
               {t(`${serviceKey}.name`)}
             </h2>
 
@@ -84,10 +85,10 @@ export default function ServiceReveal({
               {t(`${serviceKey}.description`)}
             </p>
 
-            <div className="flex flex-wrap items-center gap-6">
+            <div className="flex flex-wrap items-center gap-6 pt-2">
               {/* Price */}
               <span
-                className="text-2xl md:text-3xl font-bold"
+                className="text-2xl md:text-3xl font-bold tracking-tight"
                 style={{ color: accentColor }}
               >
                 {t(`${serviceKey}.price`)}
@@ -102,9 +103,10 @@ export default function ServiceReveal({
 
             <a
               href={`/${locale}/booking`}
-              className="inline-block px-8 py-4 rounded-full font-semibold text-white bg-primary transition-all hover:scale-105 hover:shadow-lg"
+              className="group inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white bg-primary cursor-pointer transition-all duration-300 hover:shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5"
             >
               {t("bookButton")}
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </motion.div>
         </div>

@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from "next-intl";
 import { UseFormReturn } from "react-hook-form";
 import { cn } from "@/lib/utils";
-import { Clock, DollarSign } from "lucide-react";
+import { Clock, DollarSign, ArrowRight } from "lucide-react";
 import type { BookingFormData, ServiceData } from "@/lib/booking-schema";
 
 interface Step1ServiceProps {
@@ -53,7 +53,7 @@ export default function Step1Service({ form, services, onNext }: Step1ServicePro
               onClick={() => handleSelect(service.id)}
               className={cn(
                 "relative text-left rounded-2xl border-2 p-5 transition-all duration-200",
-                "hover:border-primary/50 hover:shadow-md",
+                "hover:border-primary/50 hover:shadow-md cursor-pointer",
                 isSelected
                   ? "border-primary bg-primary/5 shadow-md"
                   : "border-foreground/10 bg-surface"
@@ -93,9 +93,10 @@ export default function Step1Service({ form, services, onNext }: Step1ServicePro
         <button
           type="button"
           onClick={handleNext}
-          className="px-8 py-3 rounded-full bg-primary text-white font-semibold hover:opacity-90 transition-opacity"
+          className="group inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-semibold cursor-pointer hover:opacity-90 transition-opacity"
         >
-          {t("steps.datetime")} →
+          {t("form.next")}
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </button>
       </div>
     </div>

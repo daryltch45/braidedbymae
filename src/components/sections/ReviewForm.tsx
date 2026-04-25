@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Star, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -17,20 +17,21 @@ const schema = z.object({
 });
 type FormData = z.infer<typeof schema>;
 
-const SERVICE_NAMES = [
-  "Box Braids",
-  "Cornrows",
-  "Twists",
-  "Locs",
-  "Crochet Braids",
-  "Tresses Hommes",
-];
+const SERVICE_KEYS = [
+  "boxBraids",
+  "cornrows",
+  "twists",
+  "locs",
+  "crochet",
+  "men",
+] as const;
 
 const inputClass =
   "w-full rounded-xl border border-foreground/15 bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all";
 
 export default function ReviewForm() {
   const t = useTranslations("reviews");
+  const tServices = useTranslations("services");
   const [hovered, setHovered] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
@@ -50,12 +51,12 @@ export default function ReviewForm() {
       });
       if (!res.ok) {
         const json = await res.json();
-        setServerError(json.error || "Une erreur est survenue.");
+        setServerError(json.error || t("form.errors.generic"));
         return;
       }
       setSubmitted(true);
     } catch {
-      setServerError("Erreur réseau. Veuillez réessayer.");
+      setServerError(t("form.errors.network"));
     }
   }
 
@@ -67,8 +68,8 @@ export default function ReviewForm() {
         className="text-center py-10"
       >
         <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
-        <p className="font-display text-xl font-bold text-foreground">Merci pour votre avis !</p>
-        <p className="text-muted mt-2 text-sm">Votre avis sera publié après validation.</p>
+        <p className="font-display text-xl font-bold text-foreground">{t("success.title")}</p>
+        <p className="text-muted mt-2 text-sm">{t("success.message")}</p>
       </motion.div>
     );
   }
@@ -86,7 +87,7 @@ export default function ReviewForm() {
               onMouseEnter={() => setHovered(star)}
               onMouseLeave={() => setHovered(0)}
               onClick={() => setValue("rating", star, { shouldValidate: true })}
-              className="p-0.5 transition-transform hover:scale-110"
+              className="p-0.5 cursor-pointer transition-transform hover:scale-110"
             >
               <Star
                 className={cn(
@@ -99,7 +100,7 @@ export default function ReviewForm() {
             </button>
           ))}
         </div>
-        {errors.rating && <p className="text-red-500 text-xs mt-1">Veuillez choisir une note</p>}
+        {errors.rating && <p className="text-red-500 text-xs mt-1">{t("form.errors.ratingRequired")}</p>}
       </div>
 
       {/* Name */}
@@ -108,18 +109,20 @@ export default function ReviewForm() {
         <input
           {...register("clientName")}
           type="text"
-          placeholder="Aminata D."
+          placeholder={t("form.namePlaceholder")}
           className={cn(inputClass, errors.clientName && "border-red-400")}
         />
-        {errors.clientName && <p className="text-red-500 text-xs mt-1">Minimum 2 caractères</p>}
+        {errors.clientName && <p className="text-red-500 text-xs mt-1">{t("form.errors.nameTooShort")}</p>}
       </div>
 
       {/* Service (optional) */}
       <div>
         <label className="block text-sm font-medium text-foreground mb-1.5">{t("form.service")}</label>
-        <select {...register("serviceName")} className={inputClass}>
-          <option value="">— Optionnel —</option>
-          {SERVICE_NAMES.map((s) => <option key={s} value={s}>{s}</option>)}
+        <select {...register("serviceName")} className={cn(inputClass, "cursor-pointer")}>
+          <option value="">{t("form.serviceOptional")}</option>
+          {SERVICE_KEYS.map((key) => (
+            <option key={key} value={tServices(`${key}.name`)}>{tServices(`${key}.name`)}</option>
+          ))}
         </select>
       </div>
 
@@ -129,10 +132,10 @@ export default function ReviewForm() {
         <textarea
           {...register("comment")}
           rows={4}
-          placeholder="Partagez votre expérience..."
+          placeholder={t("form.commentPlaceholder")}
           className={cn(inputClass, "resize-none", errors.comment && "border-red-400")}
         />
-        {errors.comment && <p className="text-red-500 text-xs mt-1">Minimum 10 caractères</p>}
+        {errors.comment && <p className="text-red-500 text-xs mt-1">{t("form.errors.commentTooShort")}</p>}
       </div>
 
       {serverError && (
@@ -142,9 +145,9 @@ export default function ReviewForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-3 rounded-full bg-primary text-white font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
+        className="w-full py-3 rounded-full bg-primary text-white font-semibold cursor-pointer hover:opacity-90 transition-opacity disabled:opacity-50"
       >
-        {isSubmitting ? "Envoi..." : t("form.submit")}
+        {isSubmitting ? t("form.submitting") : t("form.submit")}
       </button>
     </form>
   );

@@ -7,6 +7,7 @@ import Lenis from "lenis";
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
   const rafRef = useRef<number>(0);
+  const isDispatchingRef = useRef(false);
   const pathname = usePathname();
 
   const initLenis = useCallback(() => {
@@ -23,7 +24,10 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     lenisRef.current = lenis;
 
     lenis.on("scroll", () => {
+      if (isDispatchingRef.current) return;
+      isDispatchingRef.current = true;
       window.dispatchEvent(new Event("scroll"));
+      isDispatchingRef.current = false;
     });
 
     function raf(time: number) {

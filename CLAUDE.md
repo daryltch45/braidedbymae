@@ -119,27 +119,36 @@ Client selects service
 ## Design System
 
 ### Aesthetic Direction
-**Vibrant Afro-Luxe**: Bold, warm, celebratory. NOT the typical muted "clean" aesthetic. Think rich golds, deep magentas, warm terracottas against dark backgrounds. The design should feel like stepping into a vibrant, confident space.
+**Elegant Glam (Luxe Glam)**: Pink, Gold, and Black. Think luxury beauty salon — pink marble, gold fixtures, black accents. The design should feel refined, feminine, and premium.
 
 ### Color Palette
 
 **Light Mode:**
-- Background: `#FFF8F0` (warm cream)
+- Background: `#FFF0F5` (lavender blush — pinkish white)
 - Surface: `#FFFFFF`
-- Primary: `#E85D04` (burnt orange)
-- Secondary: `#9B2226` (deep crimson)
-- Accent: `#FFB703` (golden yellow)
+- Primary: `#D4839B` (dusty rose — main brand pink)
+- Secondary: `#1A1A1A` (noir — contrast)
+- Accent: `#C9A96E` (muted gold)
 - Text: `#1A1A1A`
 - Text Muted: `#6B6B6B`
+- Blush: `#F8C8DC` (soft pink — cards, highlights)
 
 **Dark Mode:**
-- Background: `#0A0A0A`
+- Background: `#0A0A0A` (deep black)
 - Surface: `#1A1A1A`
-- Primary: `#FF8C42` (bright orange)
-- Secondary: `#E85D75` (rose)
-- Accent: `#FFD166` (gold)
-- Text: `#F5F5F5`
+- Primary: `#E8A0BF` (lighter pink for contrast on dark)
+- Secondary: `#F5F0F2` (off-white text)
+- Accent: `#D4AF37` (brighter gold for dark bg)
+- Text: `#F5F0F2`
 - Text Muted: `#A0A0A0`
+- Blush: `#2A1A22` (dark rose tint — cards on dark)
+
+### Key Design Patterns
+- **Header**: Black bg (scrolled) with gold script logo, white nav text
+- **Footer**: Black bg with gold brand name, pink social hover states
+- **Buttons**: Primary = rose bg + white text; Secondary = black bg + gold text
+- **Cards**: Blush-tinted backgrounds with rose borders
+- **Brand name "BraidedByMae"**: Uses Dancing Script (--font-accent) in gold
 
 ### Typography
 - **Display/Headings**: Bold serif or display font (e.g., `Playfair Display`, `Cormorant Garamond`, or something more distinctive)

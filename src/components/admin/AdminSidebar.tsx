@@ -31,15 +31,15 @@ export default function AdminSidebar({ locale }: { locale: string }) {
   }
 
   return (
-    <aside className="w-56 shrink-0 bg-surface border-r border-foreground/10 flex flex-col h-screen sticky top-0">
+    <aside className="w-56 shrink-0 bg-secondary flex flex-col h-screen sticky top-0">
       {/* Brand */}
-      <div className="px-5 py-6 border-b border-foreground/10">
-        <p className="font-display font-bold text-foreground text-lg">BraidedByMae</p>
-        <p className="text-xs text-muted mt-0.5">Admin Dashboard</p>
+      <div className="px-5 py-6 border-b border-white/10">
+        <p className="font-accent text-accent text-xl">BraidedByMae</p>
+        <p className="text-xs text-white/40 mt-0.5">Admin Dashboard</p>
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+      <nav className="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
         {navItems.map((item) => {
           const href = `${base}${item.path}`;
           const isActive = item.path === ""
@@ -53,8 +53,8 @@ export default function AdminSidebar({ locale }: { locale: string }) {
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                 isActive
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted hover:text-foreground hover:bg-foreground/5"
+                  ? "bg-primary/15 text-primary"
+                  : "text-white/50 hover:text-white hover:bg-white/5"
               )}
             >
               <item.icon className="h-4 w-4 shrink-0" />
@@ -65,10 +65,10 @@ export default function AdminSidebar({ locale }: { locale: string }) {
       </nav>
 
       {/* Logout */}
-      <div className="px-3 py-4 border-t border-foreground/10">
+      <div className="px-3 py-4 border-t border-white/10">
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium text-muted hover:text-foreground hover:bg-foreground/5 transition-colors"
+          className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium text-white/50 hover:text-white hover:bg-white/5 transition-colors"
         >
           <LogOut className="h-4 w-4 shrink-0" />
           Logout

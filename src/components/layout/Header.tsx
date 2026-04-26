@@ -85,6 +85,9 @@ export default function Header() {
   // Check if we're on the home page (locale root)
   const isHomePage = pathname === `/${currentLocale}` || pathname === `/${currentLocale}/`;
 
+  // On the home page before scrolling, the header sits over a dark video
+  const useLight = isHomePage && !scrolled;
+
   function getNavHref(link: (typeof navLinks)[number]) {
     if (link.hash === null) return `/${currentLocale}/${link.key}`;
     return `/${currentLocale}#${link.hash}`;
@@ -111,14 +114,14 @@ export default function Header() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-background/80 backdrop-blur-md shadow-sm"
+            ? "bg-secondary/95 backdrop-blur-md shadow-md"
             : "bg-transparent"
         )}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <a href={`/${currentLocale}`} className="font-display text-xl font-bold text-foreground cursor-pointer transition-colors duration-200 hover:text-primary">
+            <a href={`/${currentLocale}`} className={cn("font-accent text-2xl cursor-pointer transition-colors duration-200", useLight ? "text-accent hover:text-accent/80" : scrolled ? "text-accent hover:text-accent/80" : "text-accent hover:text-primary")}>
               BraidedByMae
             </a>
 
@@ -129,7 +132,7 @@ export default function Header() {
                   key={link.key}
                   href={getNavHref(link)}
                   onClick={(e) => handleNavClick(e, link)}
-                  className="text-sm font-medium text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
+                  className={cn("text-sm font-medium transition-colors duration-200 cursor-pointer", useLight || scrolled ? "text-white/80 hover:text-white" : "text-foreground/70 hover:text-foreground")}
                 >
                   {t(link.key)}
                 </a>
@@ -144,7 +147,7 @@ export default function Header() {
                   href="https://www.instagram.com/mae_braided/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full p-2 text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
+                  className={cn("rounded-full p-2 transition-colors duration-200 cursor-pointer", useLight || scrolled ? "text-white/70 hover:text-white" : "text-muted hover:text-foreground")}
                   aria-label="Instagram"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
@@ -157,7 +160,7 @@ export default function Header() {
                   href="https://www.tiktok.com/@braidedbymae"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full p-2 text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
+                  className={cn("rounded-full p-2 transition-colors duration-200 cursor-pointer", useLight || scrolled ? "text-white/70 hover:text-white" : "text-muted hover:text-foreground")}
                   aria-label="TikTok"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
@@ -170,14 +173,14 @@ export default function Header() {
               <div className="relative" ref={langRef}>
                 <button
                   onClick={() => setLangOpen(!langOpen)}
-                  className="flex items-center gap-1 rounded-full px-3 py-2 text-sm text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
+                  className={cn("flex items-center gap-1 rounded-full px-3 py-2 text-sm transition-colors duration-200 cursor-pointer", useLight || scrolled ? "text-white/80 hover:text-white" : "text-muted hover:text-foreground")}
                   aria-label="Switch language"
                 >
                   <Globe className="h-4 w-4" />
                   <span className="uppercase">{currentLocale}</span>
                 </button>
                 {langOpen && (
-                  <div className="absolute right-0 top-full mt-1 rounded-xl bg-surface shadow-[var(--shadow-elevated)] border border-foreground/10 py-1 min-w-[80px]">
+                  <div className="absolute right-0 top-full mt-1 rounded-xl bg-surface shadow-[var(--shadow-elevated)] border border-foreground/10 py-1 min-w-[80px] dark:bg-surface">
                     {locales.map((locale) => (
                       <button
                         key={locale.code}
@@ -200,7 +203,7 @@ export default function Header() {
               {mounted && (
                 <button
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="rounded-full p-2 text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
+                  className={cn("rounded-full p-2 transition-colors duration-200 cursor-pointer", useLight ? "text-white/80 hover:text-white" : "text-muted hover:text-foreground")}
                   aria-label="Toggle dark mode"
                 >
                   {theme === "dark" ? (
@@ -214,7 +217,7 @@ export default function Header() {
               {/* Mobile hamburger */}
               <button
                 onClick={() => setMobileOpen(true)}
-                className="md:hidden rounded-full p-2 text-muted hover:text-foreground transition-colors duration-200 cursor-pointer"
+                className={cn("md:hidden rounded-full p-2 transition-colors duration-200 cursor-pointer", useLight || scrolled ? "text-white/80 hover:text-white" : "text-muted hover:text-foreground")}
                 aria-label="Open menu"
               >
                 <Menu className="h-5 w-5" />
@@ -226,14 +229,14 @@ export default function Header() {
 
       {/* Mobile overlay */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-[60] bg-background flex flex-col">
+        <div className="fixed inset-0 z-[60] bg-secondary flex flex-col">
           <div className="flex h-16 items-center justify-between px-4">
-            <span className="font-display text-xl font-bold text-foreground">
+            <span className="font-accent text-2xl text-accent">
               BraidedByMae
             </span>
             <button
               onClick={() => setMobileOpen(false)}
-              className="rounded-full p-2 text-muted hover:text-foreground transition-colors"
+              className="rounded-full p-2 text-white/60 hover:text-white transition-colors"
               aria-label="Close menu"
             >
               <X className="h-6 w-6" />
@@ -248,7 +251,7 @@ export default function Header() {
                   handleNavClick(e, link);
                   setMobileOpen(false);
                 }}
-                className="text-2xl font-display font-semibold text-foreground hover:text-primary transition-colors"
+                className="text-2xl font-display font-semibold text-white hover:text-primary transition-colors"
               >
                 {t(link.key)}
               </a>
@@ -266,7 +269,7 @@ export default function Header() {
                     "text-lg font-medium transition-colors",
                     locale.code === currentLocale
                       ? "text-primary"
-                      : "text-muted hover:text-foreground"
+                      : "text-white/50 hover:text-white"
                   )}
                 >
                   {locale.label}

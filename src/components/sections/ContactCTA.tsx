@@ -13,11 +13,11 @@ export default function ContactCTA() {
   return (
     <section
       id="contact"
-      className="py-32 px-4 bg-primary relative overflow-hidden"
+      className="py-32 px-4 bg-secondary relative overflow-hidden"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-white blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-primary blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-accent blur-3xl" />
       </div>
 
@@ -39,7 +39,7 @@ export default function ContactCTA() {
 
           <a
             href={`/${locale}/booking`}
-            className="group inline-flex items-center gap-2 px-10 py-5 rounded-full font-semibold bg-white text-primary text-lg cursor-pointer transition-all duration-300 hover:shadow-[0_8px_32px_rgba(255,255,255,0.3)] hover:-translate-y-0.5"
+            className="group inline-flex items-center gap-2 px-10 py-5 rounded-full font-semibold bg-accent text-secondary text-lg cursor-pointer transition-all duration-300 hover:shadow-[var(--shadow-glow-accent)] hover:-translate-y-0.5"
           >
             {t("ctaButton")}
             <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />

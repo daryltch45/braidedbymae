@@ -2,14 +2,15 @@
 
 /* ── Design Tokens ──────────────────────────────────────── */
 @theme {
-  /* Light mode colors */
-  --color-background: #FFF8F0;
+  /* Light mode — Luxe Glam: Pink, Gold, Black */
+  --color-background: #FFF0F5;
   --color-surface: #FFFFFF;
-  --color-primary: #E85D04;
-  --color-secondary: #9B2226;
-  --color-accent: #FFB703;
+  --color-primary: #D4839B;
+  --color-secondary: #1A1A1A;
+  --color-accent: #C9A96E;
   --color-foreground: #1A1A1A;
-  --color-muted: #595146;
+  --color-muted: #6B6B6B;
+  --color-blush: #F8C8DC;
 
   /* Typography */
   --font-display: "Playfair Display", Georgia, serif;
@@ -19,25 +20,26 @@
   /* Shadows */
   --shadow-soft: 0 2px 8px rgba(0,0,0,0.04);
   --shadow-card: 0 4px 16px rgba(0,0,0,0.06);
-  --shadow-elevated: 0 8px 32px rgba(0,0,0,0.08);
-  --shadow-glow-primary: 0 8px 24px rgba(232,93,4,0.2);
-  --shadow-glow-accent: 0 8px 24px rgba(255,183,3,0.15);
+  --shadow-elevated: 0 8px 32px rgba(0,0,0,0.10);
+  --shadow-glow-primary: 0 8px 24px rgba(212,131,155,0.25);
+  --shadow-glow-accent: 0 8px 24px rgba(201,169,110,0.2);
 }
 
 /* ── Dark mode overrides ─────────────────────────────────── */
 .dark, [data-theme="dark"] {
   --color-background: #0A0A0A !important;
   --color-surface: #1A1A1A !important;
-  --color-primary: #FF8C42 !important;
-  --color-secondary: #E85D75 !important;
-  --color-accent: #FFD166 !important;
-  --color-foreground: #F5F5F5 !important;
-  --color-muted: #B0A89E !important;
+  --color-primary: #E8A0BF !important;
+  --color-secondary: #F5F0F2 !important;
+  --color-accent: #D4AF37 !important;
+  --color-foreground: #F5F0F2 !important;
+  --color-muted: #A0A0A0 !important;
+  --color-blush: #2A1A22 !important;
   --shadow-soft: 0 2px 8px rgba(0,0,0,0.2) !important;
   --shadow-card: 0 4px 16px rgba(0,0,0,0.3) !important;
   --shadow-elevated: 0 8px 32px rgba(0,0,0,0.4) !important;
-  --shadow-glow-primary: 0 8px 24px rgba(255,140,66,0.15) !important;
-  --shadow-glow-accent: 0 8px 24px rgba(255,209,102,0.1) !important;
+  --shadow-glow-primary: 0 8px 24px rgba(232,160,191,0.2) !important;
+  --shadow-glow-accent: 0 8px 24px rgba(212,175,55,0.15) !important;
 }
 
 /* ── Base styles ─────────────────────────────────────────── */

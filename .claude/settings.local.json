@@ -20,7 +20,16 @@
       "Bash(mv layout.tsx page.tsx bookings calendar reviews portfolio \"\\(authed\\)/\")",
       "Bash(node *)",
       "Bash(npm run *)",
-      "Bash(npm audit *)"
+      "Bash(npm audit *)",
+      "Bash(sudo docker *)",
+      "Bash(docker compose *)",
+      "Bash(curl -s http://localhost:3000/fr)",
+      "Bash(curl -s -I http://localhost:3000/images/portfolio/box-braids/IMG_4089.JPG)",
+      "Bash(curl -s -I \"http://localhost:3000/_next/image?url=%2Fimages%2Fportfolio%2Fbox-braids%2FIMG_4089.JPG&w=640&q=75\")",
+      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__09tz5p5._.css\")",
+      "Bash(curl -s -I -H \"Origin: http://3.94.198.206:3000\" -H \"Host: 3.94.198.206:3000\" \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__09tz5p5._.css\")",
+      "Bash(curl -s -I -H \"Host: 3.94.198.206:3000\" \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__09tz5p5._.css\")",
+      "Bash(curl -s -I -H \"Host: 3.94.198.206:3000\" -H \"Referer: http://3.94.198.206:3000/fr\" \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__09tz5p5._.css\")"
     ]
   }
 }

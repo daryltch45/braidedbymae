@@ -52,7 +52,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-accent text-xl md:text-2xl text-accent"
+          className="font-accent text-2xl md:text-3xl text-accent"
         >
           BraidedByMae
         </motion.p>
@@ -82,7 +82,7 @@ export default function Hero() {
         >
           <a
             href={`/${locale}/booking`}
-            className="group inline-flex items-center gap-2 mt-4 px-10 py-4 rounded-full font-semibold text-white bg-primary cursor-pointer transition-all duration-300 hover:shadow-[0_8px_24px_rgba(232,93,4,0.35)] hover:-translate-y-0.5"
+            className="group inline-flex items-center gap-2 mt-4 px-10 py-4 rounded-full font-semibold text-white bg-primary cursor-pointer transition-all duration-300 hover:shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5"
           >
             {t("cta")}
             <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>

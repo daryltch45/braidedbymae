@@ -14,19 +14,19 @@ const services = [
     key: "cornrows",
     image: "/images/portfolio/twists/IMG_4094.JPG",
     reverse: true,
-    accent: "var(--color-secondary)",
+    accent: "var(--color-accent)",
   },
   {
     key: "twists",
     image: "/images/portfolio/twists/IMG_4093.JPG",
     reverse: false,
-    accent: "var(--color-accent)",
+    accent: "var(--color-primary)",
   },
   {
     key: "locs",
     image: "/images/portfolio/box-braids/IMG_4090.JPG",
     reverse: true,
-    accent: "var(--color-secondary)",
+    accent: "var(--color-accent)",
   },
   {
     key: "crochet",

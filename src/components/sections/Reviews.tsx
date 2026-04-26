@@ -36,7 +36,7 @@ export default function Reviews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.12 }}
-              className="bg-surface rounded-2xl p-7 border border-foreground/5 shadow-[var(--shadow-card)] space-y-4 transition-shadow duration-300 hover:shadow-[var(--shadow-elevated)]"
+              className="bg-blush/30 rounded-2xl p-7 border border-primary/10 shadow-[var(--shadow-card)] space-y-4 transition-shadow duration-300 hover:shadow-[var(--shadow-elevated)]"
             >
               <StarRating rating={5} />
 

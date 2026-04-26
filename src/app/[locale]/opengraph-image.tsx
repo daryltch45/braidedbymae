@@ -37,17 +37,17 @@ export default async function OGImage({ params }: { params: Promise<{ locale: st
             gap: "16px",
           }}
         >
-          <div style={{ fontSize: "24px", color: "#FFD166", letterSpacing: "0.15em" }}>
+          <div style={{ fontSize: "24px", color: "#D4AF37", letterSpacing: "0.15em" }}>
             {tagline}
           </div>
-          <div style={{ fontSize: "72px", fontWeight: 700, color: "#F5F5F5" }}>
+          <div style={{ fontSize: "72px", fontWeight: 700, color: "#F5F0F2" }}>
             BraidedByMae
           </div>
           <div
             style={{
               width: "80px",
               height: "4px",
-              background: "#FF8C42",
+              background: "#E8A0BF",
               borderRadius: "2px",
               marginTop: "8px",
             }}
